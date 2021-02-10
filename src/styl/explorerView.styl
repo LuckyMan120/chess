@@ -1,0 +1,252 @@
+explorerHeaderBg = lighten(headerBgDark, 2%)
+
+.explorerTable
+  display flex
+  flex-flow column nowrap
+  overflow-x: hidden;
+  white-space: nowrap;
+  .empty
+    flex 1 1 auto
+    display flex
+    justify-content center
+    align-items center
+  .spinner_overlay
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display flex
+    align-items center
+    justify-content center
+    visibility hidden
+    > .spinner
+      margin 22px 0 0
+      width initial
+      height initial
+      font-size 25px
+  // disable bc of iOS bug
+  // tbody, > .message
+  //   transition: opacity 0.13s;
+  thead
+    > tr
+      background-color explorerHeaderBg
+  th, .title
+    color #ccc
+    text-transform: capitalize;
+    font-weight normal
+    font-size: 12px;
+    line-height: 25px;
+    background-color explorerHeaderBg
+    text-align: left;
+    padding-left: 0.5em
+  th
+    &.explorerMove-games
+      padding-left 15px
+    &.explorerMove-result
+      padding-left 15px
+  tr
+    &:nth-child(even)
+      background-color: lighten(bgdark, 15%)
+  td
+    vertical-align middle
+    padding-left: 0.5em
+    &.explorerMove-move
+      font-size: 14px;
+      line-height: 30px;
+      padding-left: 0.5em
+    &.explorerMove-games
+      font-size: 11px;
+      text-align: right;
+      padding-left 10px
+    &.explorerMove-result
+      width: 100%;
+      padding-right: 0.5em
+      padding-left 15px
+  .white
+    background-color: #bbb;
+    color: #222;
+    box-shadow: 0 -5px 7px rgba(0,0,0,0.25) inset;
+  .draws, .black
+    color: #fff;
+    box-shadow: 0 5px 7px rgba(255,255,255,0.2) inset;
+  .draws
+    background-color: #666;
+    color: #ddd;
+  .black
+    background-color: #333;
+    box-shadow: 0 5px 7px rgba(255,255,255,0.1) inset;
+  .games
+    font-size 0.8em
+    width: 100%;
+    td
+      padding: 5px 0 5px 7px;
+      max-width: 110px;
+      span
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    result
+      display: block;
+      text-align: center;
+      padding: 3px 5px;
+      border-radius: 3px;
+      font-family: monospace;
+      font-size: 0.9em;
+  .toconf
+    flex 0 0 30px
+    margin-left auto
+    align-self stretch
+    display flex
+    align-items center
+    justify-content center
+    font-size: 16px
+  .message
+    text-align: center;
+    font-style: italic;
+    > h3
+      > i
+        display inline
+        font-size: 1.2em
+        opacity: 0.7
+      font-weight: bold;
+    > p
+      white-space: normal;
+      padding: 0 10px;
+  &.loading
+    .spinner_overlay
+      visibility visible
+    tbody, .message
+      opacity: 0.4;
+
+.explorer-data
+  overflow-y auto
+
+.explorer-fixedTitle
+  flex 0 0 25px
+  display flex
+  flex-flow row nowrap
+  align-items center
+  font-size 12px
+  overflow hidden
+  white-space nowrap
+  background-color explorerHeaderBg
+  padding-left 0.5em
+  > span
+    overflow hidden
+    text-overflow ellipsis
+
+.explorerConfig
+  flex-grow 1
+  display flex
+  flex-flow column nowrap
+  justify-content center
+  font-size 0.75em
+  section
+    padding: 8px 10px 0 10px;
+    &.db
+      padding-top: 5px;
+    &.save
+      text-align: center;
+      padding: 15px 0 10px 0;
+    label
+      font-weight: bold;
+      display: block;
+      line-height: 2em;
+      max-width 300px
+      margin 0 auto
+
+.explorerBar
+  text-align: center;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  border: 0px solid #555;
+  border-width: 1px 0;
+  box-sizing: border-box;
+  height: 16px;
+  line-height: 16px;
+  font-size: 11px;
+  &:first-child
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-left-width: 1px;
+
+  &:last-child
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-right-width: 1px;
+
+.explorerTablebase
+  width: 100%;
+  td:first-child
+    font-family: 'ChessSansPiratf', sans-serif;
+    font-size: 14px;
+    line-height: 30px;
+    padding-left: 0.5em
+  td:last-child
+    padding-right: 0.5em
+    text-align: right;
+  result
+    padding: 3px 5px;
+    margin-left: 5px;
+    border-radius: 3px;
+    font-size: 0.9em;
+
+.displayPieces
+  .explorerMove-move
+    font-family ChessSansPiratf
+
+
+// themes
+
+.view-container.light
+  .explorer-fixedTitle
+    background-color inherit
+    color inherit
+    border-bottom 1px solid borderLightGray
+
+  .explorerTable
+    background-color themeBgLight
+    th, thead > tr
+      color #fff
+      background-color rgba(#3b93da, 0.9)
+    tr
+      &:nth-child(even)
+        background-color #fafafa
+    .white
+      background-color: #fff;
+      box-shadow: 0 -5px 7px rgba(0,0,0,0.1) inset;
+    .draws
+      background-color: #a0a0a0;
+    .black
+      background-color: #555;
+      color: #ddd;
+    .toconf
+      color inherit
+
+  .explorerBar
+    border-color #ccc
+
+  .explorerConfig
+    span
+      border-color #ccc
+      &.selected
+        background-color blue
+
+.view-container.transp
+  .explorerTable
+    thead > tr
+      background-color inherit
+    tr
+      &:nth-child(even)
+        background-color transpWhite01
+    .black
+      background-color lighten(#000, 10%)
+
+  .explorerTable th, .explorerTable .title
+    background-color transpBlack06
+    color #ccc
+
+  .explorer-fixedTitle
+    background-color transpBlack02

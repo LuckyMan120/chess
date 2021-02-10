@@ -1,0 +1,162 @@
+.view-container.light
+  .postWrapper
+    border-top-color borderLightGray
+  .responseWrapper
+    textarea
+      border-color borderLightGray
+  .composeInput
+    border-color borderLightGray
+
+.inboxFooter
+  display flex
+  flex-flow row nowrap
+  >.composeAction
+    flex 1 1 50%
+    margin-bottom 0
+  > .navigationButtons
+    flex 1 1 50%
+    display flex
+    flex-flow row nowrap
+    justify-content center
+    align-items center
+
+.emptyInbox
+  padding-left 10px
+  padding-top 5px
+
+table.threadList
+  font-size 0.9em
+  width 100%
+  tr.unread
+    font-weight bold
+  td.threadAuthor
+    text-align: left
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow hidden
+    width 35%
+    position relative
+    max-width 0
+  td.threadName
+    font-size 0.9em
+    padding 15px 5px
+    text-align: left
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow hidden
+    width 45%
+    position relative
+    max-width 0
+  td.threadDate
+    font-size 0.85em
+    text-align right
+    width 15%
+    white-space: nowrap
+    overflow hidden
+    position relative
+    max-width 0
+
+.threadWrapper
+  > .responseWrapper
+    width 90%
+    margin 0 auto
+    textarea
+      width 100%
+      height 100px
+      background transparent
+      border 1px solid #444
+      margin 5px 0px 5px 0px
+      &::placeholder
+        opacity 0.6
+    .sendResponse
+      margin 0 auto
+      color gold
+      width 50%
+    .deleteThread
+      width 50%
+  .confirmDeleteDialog
+    display flex
+    flex-flow row nowrap
+    >.confirmDelete
+      width 40%
+      color red
+    >.cancelDelete
+      width 40%
+  >.postWrapper
+    width 90%
+    margin 0 auto
+    padding 1em 0
+    border-top 1px solid #444
+    &.first
+      border-top none
+    > .infos
+      width 90%
+      margin 0 auto
+      margin-bottom 0.5em
+      >.arrow
+        vertical-align middle
+        line-height 1
+      >.user
+        display inline
+    > .text
+      overflow hidden
+      word-break break-word
+
+
+.composeWrapper
+  width 95%
+  margin 0 auto
+  height 100%
+
+#composeForm
+  position relative
+  display flex
+  flex-flow column nowrap
+  height 100%
+  > input
+    outline none
+    flex none
+  >textarea
+    flex 3 100%
+    width 100%
+  > button
+    margin 5px auto 10px auto
+    color gold
+    width 50%
+    flex 0 0 45px
+  >.errorMessage
+    color: red
+
+.composeInput, .composeTextarea
+  background transparent
+  width 100%
+  margin 5px 0px 5px 0px
+  &::placeholder
+    opacity 0.6
+
+.composeInput
+  padding-bottom 5px
+  border none
+  height 35px
+  border-bottom 1px solid lighten(bgdark, 10%)
+  &:focus
+    border-bottom-color gold
+
+.composeTextarea
+  border 1px solid lighten(bgdark, 10%)
+  padding 10px
+  outline-color gold
+
+.compose_autocompleteResults
+  height: calc(100% - 60px);
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  top: 50px;
+  background: black;
+  box-shadow 2px 2px 6px rgba(0,0,0,0.3)
+
+
+.view-container.light
+  .compose_autocompleteResults
+    background #eee

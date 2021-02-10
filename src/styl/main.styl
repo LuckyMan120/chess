@@ -1,0 +1,251 @@
+html
+  font-family 'Noto Sans', sans-serif
+
+body
+  fluid-type(14px, 18px)
+  background-color #000
+  overflow hidden
+  padding-top: env(safe-area-inset-top);
+
+#free_content
+  background-color bgdarkPage
+  .list_item
+    border-color lighten(bgdarkPage, 8%)
+    &.selected
+      background-color lighten(bgdarkPage, 5%)
+
+.view-container
+  position absolute
+  overflow hidden
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  // iphone X safe area
+  // safe raw values, for reference:
+  // landscape: top=0, right=44, bottom=21, left=44
+  @media only screen and (orientation landscape)
+    left env(safe-area-inset-left)
+    right env(safe-area-inset-right)
+
+main
+  height 100%
+  width 100%
+  background bgdark
+  color textDarkBg
+
+.main_header
+  padding-top: env(safe-area-inset-top);
+  background headerBgDark
+  width 100%
+  height 'calc(%s + env(safe-area-inset-top))' % headerHeight
+  color headerBgDarkColor
+  > nav
+    height 100%
+    overflow hidden
+    display flex
+    justify-content space-between
+    > .buttons
+      flex 0 0 auto
+      display flex
+      align-items center
+      > .main_header_button
+        padding-left 10px
+        padding-right 10px
+        > .chip
+          right 2px
+      > .game_menu_button
+        padding-right 15px
+        > .chip
+          right 5px
+
+.subHeader
+  background headerBgDark
+
+.main_header-selector
+  width 100%
+  height 25px
+  line-height 25px
+  margin 0
+  padding 0
+  box-shadow none
+  background transparent
+  color darken(headerBgDarkColor, 5%)
+  > select
+    background transparent
+    height 100%
+    padding-left 20px
+    padding-right 0
+    font-size 1em
+    line-height 25px
+  > label
+    font-size 1.2em
+    &:after
+      content ''
+    > i
+      position relative
+      top 2px
+      color gold
+
+.main_header_drop_shadow
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom 0px
+  height: 3px
+  z-index: 1
+  box-shadow 0px 2px 3px -1px rgba(0,0,0,0.5)
+
+.main_header_title
+  display flex
+  flex-flow row nowrap
+  align-items center
+  padding-left 10px
+  font-size 1.2em
+  line-height headerHeight
+  flex 1 1 auto
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+  letter-spacing -0.5px
+  &.withSub
+    display flex
+    flex-flow column nowrap
+    line-height initial
+    justify-content center
+    align-items flex-start
+    font-size 1.1em
+  &.reconnecting
+    white-space nowrap
+    justify-content center
+    &.withTitle
+      justify-content flex-start
+      > span
+        margin-right 5px
+  @media only screen and (max-width 320px)
+    &.playing
+      padding-left 0
+
+.main_header_button
+  flex 0 0 auto
+  background transparent
+  padding 0 18px
+  margin 0
+  font-size 20px
+  line-height 20px
+  height headerHeight
+  &.fa-bell
+    position relative
+    top -2px
+
+.header-subTitle
+  width 100%
+  font-size 0.8em
+  color rgba(textDarkBg, 0.85)
+  overflow hidden
+  text-overflow ellipsis
+
+.back_button
+  flex 1 1 auto
+  display flex
+  flex-flow row nowrap
+  height headerHeight
+  overflow hidden
+  white-space nowrap
+  text-overflow ellipsis
+  padding 0
+  > button
+    margin 0
+    height headerHeight
+    padding 0 12px
+    > .svg-icon-wrapper
+      width 24px
+      height 24px
+    &.active
+      background headerBgDarkActive
+  > .title, .main_header_title
+    &.withSub
+      font-size 1.1em
+      display flex
+      flex-flow column nowrap
+      justify-content center
+      line-height initial
+    font-size 1.2em
+    padding-right 2px
+    padding-left 2px
+    overflow hidden
+    text-overflow ellipsis
+    line-height headerHeight
+
+.main_header.board
+  .chip
+    color headerBgDark
+    border-color headerBgDark
+
+.friends_button
+  position relative
+  padding-right 10px
+
+.game_menu_button
+  position relative
+  &.invisible
+    visibility hidden
+  &::before
+    content ''
+    display block
+    width 20px
+    height 20px
+    background-repeat no-repeat
+    background-image url('../../images/board/svg/brown.svg')
+    background-size 40px
+  &.brown::before
+    background-image url('../../images/board/svg/brown.svg')
+  &.blue::before
+    background-image url('../../images/board/svg/blue.svg')
+  &.green::before
+    background-image url('../../images/board/svg/green.svg')
+  &.purple::before
+    background-image url('../../images/board/svg/purple.svg')
+  &.ic::before
+    background-image url('../../images/board/svg/ic.svg')
+  .buttons > &.new_challenge:before
+    background transparent
+    font-family: "lichess" !important;
+    content: "U";
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+
+@media only screen and (min-width 600px)
+  .friends_button
+    padding-right 15px
+    margin-right 5px
+    + .game_menu_button
+      padding-left 15px
+      padding-right 15px
+
+.content
+  width 100%
+  height var(--content-height)
+  display flex
+  flex-flow column nowrap
+  &.withFooter
+    height 'calc(var(--content-height) - %s - env(safe-area-inset-bottom))' % footerHeight
+  &.fullScreen
+    height 100%
+  @media only screen and (orientation portrait) and (min-width 768px) and (min-height 768px)
+    &.withFooter
+      height 'calc(var(--content-height) - %s - env(safe-area-inset-bottom))' % footerHeightBigScreens
+
+.main_footer
+  flex 0 0 footerHeight
+  display flex
+  flex-flow column nowrap
+  // iphone X support
+  margin-bottom: env(safe-area-inset-bottom);
+  @media only screen and (orientation portrait) and (min-width 768px) and (min-height 768px)
+    flex 0 0 footerHeightBigScreens

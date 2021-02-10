@@ -1,0 +1,325 @@
+#studyMenu
+  padding-top: env(safe-area-inset-top);
+  background #373737
+  color #DFDFDF
+  position absolute
+  visibility hidden
+  right 0
+  top 0
+  bottom 0
+  height 100%
+  min-height 100%
+  max-height 100%
+  width 85%
+  display flex
+  flex-flow column nowrap
+  @media only screen and (min-width 500px)
+    width 50%
+  @media only screen and (min-width 960px)
+    width 35%
+  overflow hidden
+  z-index 100
+  transform translate3d(100%, 0,0)
+  section
+    padding 0 15px
+  h3
+    text-transform uppercase
+    color #fff
+    font-weight normal
+    margin 40px 0px 30px 0
+
+.study-menu-title
+  display flex
+  justify-content space-between
+  font-size 1.1em
+  text-transform uppercase
+  color blue
+  font-weight bold
+  padding 10px 1em
+
+.study-menu-link
+  padding 12px 1em
+  word-wrap break-word
+  display flex
+  flex-flow row nowrap
+  &.viewer
+    color rgba(textDarkGray, 0.85)
+  &.current
+    background lighten(#373737, 5%)
+  &.active
+    background lighten(#373737, 3%)
+  > .bullet
+    margin-right 1em
+    color blue
+    font-weight bold
+    text-align center
+    flex 0 0 16px
+    &.fa
+      margin-top 3px
+      &.fa-eye
+        color rgba(blue, 0.6)
+
+.study-tags
+  width 100%
+
+.study-tag
+  > th
+    padding 10px
+    text-transform uppercase
+    font-weight normal
+    color rgba(textDarkBg, 0.8)
+    width 1px
+  > th, td
+    text-align left
+  &:nth-child(even)
+    background-color lighten(bgdark, 10%)
+
+.study-comments
+  flex 0 0 65%
+  &.selected
+    border-top 2px solid rgba(green2, 0.75)
+
+.study-comment
+  padding 10px
+  > .by
+    font-weight bold
+
+
+.study-pagerWrapper
+  flex 1 1 auto
+  display flex
+  flex-flow column nowrap
+  min-height 0 // chrome 73 regression
+
+.study-pagerSubHeader
+  flex 0 0 40px
+  margin 0
+  padding-left 15px
+  background headerBgDark
+  display flex
+  flex-flow row nowrap
+  align-items center
+  position relative
+
+.study-pagerScroller
+  flex 1 1 auto
+  display flex
+  flex-flow column nowrap
+
+.study-pagerLoader
+  flex 1 1 auto
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+.study-pagerItem
+  position initial
+  display flex
+  flex-flow column nowrap
+
+.study-pagerItemTitle
+  display flex
+  flex-flow row nowrap
+  align-items center
+  overflow hidden
+  > i
+    flex 0 0 40px
+    display flex
+    align-items center
+    justify-content center
+    font-size 40px
+    height 40px
+    color blue
+    margin-right 10px
+  > div
+    flex 0 1 auto
+    display flex
+    flex-flow column nowrap
+    justify-content center
+    overflow hidden
+    text-overflow ellipsis
+    > h2
+      white-space nowrap
+      overflow hidden
+      text-overflow ellipsis
+      color blue
+      font-size 1.1em
+      line-height 1.1em
+    > h3
+      white-space nowrap
+      overflow hidden
+      text-overflow ellipsis
+      font-size 0.85em
+
+.study-pagerItemBody
+  display flex
+  flex-flow row nowrap
+  justify-content space-between
+  margin-top 1em
+  font-size 0.85em
+  line-height 16px
+  > .chapters > li, > .members li
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+  > .chapters
+    flex 0 0 58%
+    max-width 58%
+  > .members
+    margin-left 2%
+    flex 0 0 40%
+    max-width 40%
+
+.study-pagerSelectWrapper
+  flex-grow 1
+  display flex
+  flex-flow row nowrap
+  > .categories
+    flex 1 1 auto
+    margin-right 2%
+  > .orders
+    flex 0 0 38%
+
+.study-pagerToggleSearch
+  height 40px
+  display flex
+  justify-content center
+  align-items center
+  font-size 20px
+  flex 0 0 50px
+  &.active
+    background-color headerBgDarkActive
+
+.study-pagerSelect
+  width 100%
+  outline none
+  border 0
+  background transparent
+  height 40px
+  font-size 0.9em
+
+.study-pagerSearchWrapper
+  flex-grow 1
+  display flex
+  flex-flow row nowrap
+  align-items center
+  height 40px
+  > .inputWrapper
+    position relative
+    flex-grow 1
+    margin-right 5px
+    display flex
+    align-items center
+    > input
+      flex-grow 1
+      background-color lighten(bgdark, 3%)
+      outline none
+      border none
+      padding 0 34px 0 10px
+      height 40px
+    > .cancel
+      position absolute
+      right 4px
+      color lighten(textMediumGray, 10%)
+  > button
+    height 36px
+    flex 0 0 60px
+    padding 0
+    background linear-gradient(to bottom,rgba(40,40,40,1),rgba(34,34,34,1) 100%)
+    text-shadow 0 1px 0 #000
+    color #8a8a8a
+
+.study-pagerEmpty
+  flex-grow 1
+  display flex
+  justify-content center
+  align-items center
+
+.study-replayActions
+  flex 0 0 40px
+  display flex
+  flex-flow column nowrap
+  background-color bgdark
+  &.selected
+    border-left-color rgba(green2, 0.75)
+  > button
+    padding 10px
+    position relative
+    &.selected
+      background-color rgba(green2, 0.75)
+      color #fff
+    > .chip
+      height 12px
+      width 12px
+      font-size 10px
+      top 3px
+      right 6px
+      line-height inherit
+      background lighten(green2, 5%)
+      color #fff
+      border 0
+      border-radius 3px
+
+.study-replayWrapper
+  display: flex
+  flex-flow row nowrap
+
+
+.view-container.light
+  #studyMenu
+    background white
+    color textDarkGray
+  .study-menu-link
+    &.current
+      background palerBlue
+    &.active
+      background veryPaleBlue
+  .study-replayActions
+    background-color #eee
+    > button > .chip
+      background darken(green2, 8%)
+  .study-tag
+    > th
+      color rgba(textLightBg, 0.8)
+    &:nth-child(even)
+      background-color darken(#fff, 3%)
+  .study-pagerSearchWrapper
+    > .inputWrapper > input
+      background-color darken(themeBgLight, 3%)
+    > button
+      background: linear-gradient(to bottom,rgba(245,245,245,1) 0%,rgba(240,240,240,1) 100%);
+      text-shadow none
+  .study-pagerToggleSearch.active
+    background-color themeBgLightActive
+
+
+.view-container.transp
+  #studyMenu
+    background #111
+  .study-menu-link
+    &.current
+      background lighten(#111, 7%)
+    &.active
+      background lighten(#111, 5%)
+  .study-replayActions
+    background-color transpWhite015
+    > button > .chip
+      background lighten(green2, 8%)
+      color #fff
+  .study-tag
+    &:nth-child(even)
+      background-color transpWhite01
+  .study-pagerSubHeader
+    background rgba(0,0,0,0.55)
+  .study-pagerSearchWrapper
+    > .inputWrapper > input
+      background-color transpWhite01
+    > button
+      background transpBlack06
+      box-shadow transpShadow
+  .study-pagerItemTitle
+    > i
+    color inherit
+    > div > h2
+      color inherit
+      font-weight bold

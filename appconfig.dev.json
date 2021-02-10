@@ -1,0 +1,4 @@
+{
+  "apiEndPoint": "http://dev.chess.pro",
+  "socketEndPoint": "ws://socket.dev.chess.pro"
+}

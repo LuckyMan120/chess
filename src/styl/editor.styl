@@ -1,0 +1,99 @@
+.editor-wrapper
+  flex 1 1 auto
+  width 100%
+  display flex
+  flex-flow column nowrap
+  @media only screen and (orientation: landscape) and (min-width 768px) and (min-height 768px)
+    margin 3vh
+
+.editor-table
+  flex 1 1 auto
+  display: flex
+  flex-flow: column nowrap
+  justify-content: center
+  padding 0 1vmin
+  @media only screen and (orientation: landscape) and (min-width 768px) and (min-height 768px)
+    justify-content space-evenly
+
+.editor-piecesDrawer
+  background #e6e6e6
+  @media only screen and (orientation: portrait) and (min-width 768px) and (min-height 768px)
+    margin 0 3vw
+
+.sparePieces
+  display flex
+  justify-content center
+  align-items center
+  padding 3px 0
+  overflow hidden
+
+.sparePiece
+  position relative
+  display inline-block
+  width calc(100vw / 10)
+  height calc(100vw / 10)
+  > piece
+    width 100%
+    height 100%
+    z-index 1
+  @media only screen and (orientation: landscape)
+    width "calc((100vh - %s) / 10)" % headerHeight
+    height "calc((100vh - %s) / 10)" % headerHeight
+  @media only screen and (orientation: portrait) and (min-width 768px) and (min-height 768px)
+    width calc(100vw / 14)
+    height calc(100vw / 14)
+  @media only screen and (orientation: landscape) and (min-width 768px) and (min-height 768px)
+    width "calc((100vh - %s - 18vh - 4vmin - env(safe-area-inset-top)) / 12)" % headerHeight
+    height "calc((100vh - %s - 18vh - 4vmin - env(safe-area-inset-top)) / 12)" % headerHeight
+
+.editorMenu
+  > .popup_content
+    padding 10px
+  .select_input
+    margin-top 0
+    + .select_input
+      margin-top 5px
+    select
+      padding-left 80px
+
+.editor-castling
+  margin 10px auto 0
+  width 80%
+  text-align center
+  h3
+    font-weight bold
+    margin-bottom 5px
+  .form-multipleChoice
+    margin-bottom 3px
+    color textGray
+
+.continueFromHere
+  h2
+    font-weight bold
+  .sep
+    margin-top 10px
+    padding-left 10px
+    color darken(modalDarkColor, 35%)
+
+.pasteFenPopup
+  .popup_content
+    padding 1em
+    text-align center
+    input
+      border 1px solid borderLightGray
+      outline none
+      width 100%
+      height 35px
+      padding 5px
+    button
+      margin-top 10px
+
+.view-container.light
+  .continueFromHere
+    .sep
+      color textLightBg
+
+
+.view-container.transp
+  .editor-piecesDrawer
+    background transpWhite05

@@ -1,0 +1,98 @@
+.ceval-Wrapper
+  min-height 0 // fix chrome 73 regression
+  flex 1 1 auto
+  display flex
+  flex-flow column nowrap
+  strong
+    color lighten(textDarkBg, 10%)
+
+.ceval-infos
+  flex 0 0 auto
+  padding 10px
+  font-size 0.9em
+  &.cloud
+    justify-content flex-start
+  > div
+    margin-right 0.5em
+
+.ceval-notEnabled
+  display flex
+  justify-content center
+  align-items center
+
+.ceval-curEval
+  flex 0 0 auto
+  min-width 45px
+  font-weight bold
+  height 25px
+  line-height 25px
+  text-align center
+  border-right 1px solid borderColor
+  > .spinner
+    width initial
+    height initial
+    font-size 1em
+    padding 0
+    margin 0
+    text-align center
+
+.ceval-pv_box
+  // flex height
+  height initial
+  font-size 0.9em
+  flex 1 1 auto
+  &.gameOver
+    font-style italic
+  &.loading
+    display flex
+    justify-content center
+    align-items center
+    > .spinner
+      font-size 2em
+
+.ceval-pv
+  display flex
+  flex-flow row nowrap
+  padding 0.5em 10px
+  &.active
+    opacity 0.9
+  &.even
+    background-color bgdark
+
+.ceval-pv_eval
+  flex 0 0 33px
+  margin-right 0.5em
+
+.ceval-spinner
+  display inline
+  margin-left 0.5em
+  opacity 0.7
+  > .fa-pulse
+    will-change transform
+    // 5s otherwise the phone would spend more cpu time to rotate than to analyse...
+    animation fa-spin 5s infinite steps(8)
+
+.ceval-cloud
+  background: rgba(117, 153, 0, 0.7);
+  color: #fff;
+  padding: 0px 3px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-size: 9px;
+
+.view-container.light
+  .ceval-pv.even
+    background-color lighten(bglightEven, 70%)
+
+  .ceval-Wrapper strong
+    color inherit
+
+  .ceval-curEval
+    border-right-color borderLightGray
+
+.view-container.transp
+  .ceval-pv.even
+    background-color transpWhite005
+
+  .ceval-Wrapper strong
+    color textTransp

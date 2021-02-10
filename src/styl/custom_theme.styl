@@ -1,0 +1,169 @@
+.view-container.transp
+  a
+    text-shadow 0 1px 0 #000
+
+  .modal_content
+    a
+      text-shadow none
+
+  .box
+    background-color transpBlack03
+
+  .actions_bar
+    background-color transpBlack06
+
+  > main
+    background-color transparent
+    background-position center center
+    background-repeat no-repeat
+    background-size cover
+  &.anthracite
+    > main
+      background-position initial
+  &.space
+    .main_header.board .chip, .chip
+      color rgba(#120100, 0.9)
+      border-color rgba(#120100, 0.9)
+  &.checkerboard
+    .main_header.board .chip, .chip
+      color rgba(#0a160b, 0.9)
+      border-color rgba(#0a160b, 0.9)
+  &.blue-maze
+    > main
+      background-position bottom
+    .main_header.board .chip, .chip
+      color rgba(#041320, 0.9)
+      border-color rgba(#041320, 0.9)
+  &.green-maze
+    > main
+      background-position bottom
+    .main_header.board .chip, .chip
+      color rgba(#0a160b, 0.9)
+      border-color rgba(#0a160b, 0.9)
+  &.red-maze
+    > main
+      background-position bottom
+    .main_header.board .chip, .chip
+      color rgba(#170407, 0.9)
+      border-color rgba(#170407, 0.9)
+  &.wood
+    > main
+      background-position initial
+    .main_header.board .chip, .chip
+      color rgba(#1c0a07, 0.9)
+      border-color rgba(#1c0a07, 0.9)
+
+  main, .main_header, .action_bar_button, .antagonistUser
+    color textTransp
+
+  .tab-button
+    color rgba(textTransp, 0.9)
+    &.selected
+      color tabsActive
+
+  .subHeader
+    background transparent
+
+  .main_header_button.active,
+  .action_bar_button.active,
+  .antagonistInfos.active,
+  .back_button > button.active,
+  .tab-button.active,
+  .profilePerf.active,
+  .rankingPlayer.active,
+  .followingPlayerAction.active
+    background-color transpWhite01
+
+  .action_bar_button
+    &.glow
+      animation answer_glow_transp 5s infinite
+    > .chip
+      color #fff
+      border-color transparent
+      line-height 12px
+      width 18px
+      height 18px
+
+  .main_header, .fatButton, .buttonMetal, .moreButton > button, .tabs-navigation,
+  .mini_board_container > .vsbloc, .select_input, .clock, .main_footer, .replay_inline
+    background transpBlack06
+
+  .tabs-navigation, .select_games_filter
+    background-color rgba(0,0,0,0.55)
+
+  #free_content
+    background-color transpBlack01
+    .list_item
+      border-bottom-color transpWhite01
+      &.selected
+        background-color transpWhite01
+
+  .threadWrapper > .responseWrapper textarea, .composeInput,
+  .navigationButton, .postWrapper, .tabs-navigation.withBorder
+    border-color transpWhite02
+
+  .composeInput:focus
+    border-bottom-color rgba(255,255,255,0.8)
+  .composeTextarea:focus
+    outline-color rgba(255,255,255,0.8)
+
+  .radio_list input.radio:checked + label, .settings_list .list_item.selected
+    background-color transpWhite01
+
+  .userGame, .progress, .puzzleComment, .action_bar_button, .tournamentConditions,
+  .tournamentTimeInfo, .tournamentTitle, .homeTitle, .patron.online
+    text-shadow 0 1px 1px rgba(0,0,0,0.5)
+
+  .rp.up, .userGame-status.win, .puzzleComment.great, .puzzleComment.win,
+  .tournamentConditions.accepted
+    color lighten(green, 13%)
+
+  .rp.down, .userGame-status.loose, .puzzleComment.loss, .puzzleComment.fail,
+  .tournamentConditions.rejected
+    color lighten(red, 20%)
+
+  .select_input, .fatButton
+    color #ccc
+
+  .fatButton
+    box-shadow transpShadow
+    &.active
+      background transpBlack04
+
+  .list_item
+    border-bottom-color transpWhite01
+    &.odd
+      background transpWhite005
+    &.active
+      background-color transpWhite01
+
+  .items_list_block
+    background transpBlack02
+    &.noPadding
+      > .list_item.nav:after
+        right 5px
+    > .list_item
+      padding-right 10px
+      padding-left 10px
+
+  .main_header.board .chip, .chip
+    color rgba(black, 0.9)
+    border-color rgba(black, 0.9)
+    background rgba(gold, 0.9)
+
+  .tomb
+    .pawn
+      background-image url(../../images/pieces/mono/P_white.svg)
+    .bishop
+      background-image url(../../images/pieces/mono/B_white.svg)
+    .knight
+      background-image url(../../images/pieces/mono/N_white.svg)
+    .rook
+      background-image url(../../images/pieces/mono/R_white.svg)
+    .queen
+      background-image url(../../images/pieces/mono/Q_white.svg)
+    .king
+      background-image url(../../images/pieces/mono/K_white.svg)
+
+  .select_input.main_header-selector
+    background transparent

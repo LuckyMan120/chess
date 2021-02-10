@@ -1,0 +1,118 @@
+#chat
+  @media only screen and (orientation: landscape) and (min-width 768px) and (min-height 768px)
+    width calc(100vw - var(--board-side-land-tablet) - 3vh)
+    left initial
+    right 0
+
+.chat_content
+  display flex
+  flex-flow column nowrap
+
+.chat_scroller
+  flex 1 1 auto
+  display flex
+  flex-flow column nowrap
+  padding 2vmin
+
+.spectator_chat_msg
+  line-height 1.2em
+  word-wrap break-word
+  padding .4em 0
+  > strong
+    letter-spacing -1px
+  &.system
+    width 100%
+    text-align right
+    font-style italic
+    font-size 0.8em
+
+.chat_msg
+  font-weight normal
+  padding 15px
+  color textDarkGray
+  background rgba(#d8d8d8, 80%)
+  margin-top 20px
+  border-radius 8px
+  line-height 1.2em
+  word-wrap break-word
+  align-self flex-start
+  margin-right 10%
+  &:first-child
+    margin-top 0
+  &.player
+    margin-right 0
+    margin-left 10%
+    color darken(#fff, 20%)
+    background rgba(blue, 45%)
+    align-self flex-end
+    & + .chat_msg.player
+      margin-top 2px
+  &.opponent
+    & + .chat_msg.opponent
+      margin-top 2px
+  &.system
+    background transparent
+    color darken(modalDarkColor, 25%)
+    border 0
+    border-radius 0
+    width 100%
+    text-align right
+    font-style italic
+    font-size 0.8em
+    & + .chat_msg.system
+      margin-top -10px
+      padding-top 0
+
+.chat_form
+  flex 0 1 auto
+  display flex
+  flex-flow row nowrap
+  min-height 50px
+  background-color darken(modalDarkBg, 10%)
+  border-top 1px modalDarkBorder solid
+  > textarea
+    background-color darken(modalDarkBg, 10%)
+  // iphone X support
+  margin-bottom: env(safe-area-inset-bottom);
+
+.chat_input
+  flex 1 1 auto
+  padding 0
+  border none
+  outline none
+
+.chat_send
+  flex 0 0 50px
+  padding 0
+  font-size 30px
+  background transparent
+  color #C3A86F
+  overflow hidden
+  &:before
+    display block
+    transform rotate(50deg)
+
+
+.view-container.light
+  .chat_msg
+    color textDarkGray
+  .chat_form
+    background-color #fff
+    border-color borderLightGray
+    &.player
+      color darken(blue, 40%)
+    > textarea
+      background-color #fff
+  .chat_input
+    color textLightBg
+
+.view-container.transp
+  .chat_msg
+    &.player
+      background rgba(blue, 55%)
+  .chat_form
+    background-color lighten(modalTranspBg, 2%)
+    > textarea
+      background-color lighten(modalTranspBg, 2%)
+  .spectator_chat_msg
+    text-shadow 0 1px 1px rgba(0,0,0,0.5)

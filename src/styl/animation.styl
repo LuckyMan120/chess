@@ -1,0 +1,160 @@
+.loader_circles
+  transform translateZ(0)
+  display inline-block
+  width 55px
+  height 12px
+
+.loader_circles div {
+  background-color:gold;
+  opacity: 0;
+  float:left;
+  height:13px;
+  width:13px;
+  margin-left:5px;
+  animation-name:bounce_loader_circles;
+  animation-duration:1.5s;
+  animation-iteration-count:infinite;
+  animation-direction:linear;
+  border-radius:50%;
+}
+
+.loader_circles .circle_1 {
+  animation-delay: 0.3s;
+}
+
+.loader_circles .circle_2 {
+  animation-delay: 0.8s
+}
+
+.loader_circles .circle_3 {
+  animation-delay: 1.3s
+}
+
+@keyframes bounce_loader_circles {
+  0% { }
+  50% { opacity: 1 }
+  100% { }
+}
+
+.loader, .loader:before, .loader:after
+  border-radius: 50%;
+
+.loader:before, .loader:after
+  position: absolute;
+  content: '';
+
+.loader
+  display: block;
+  font-size: 11px;
+  margin: 0 auto;
+  position: relative;
+  width: 52px;
+  height: 52px
+  box-shadow: inset 0 0 0 0.7em textLightGray
+  &:before
+    width: 2.7em;
+    height: 5.2em;
+    background: #eee;
+    border-radius: 5.2em 0 0 5.2em;
+    top: -0.1em;
+    left: -0.1em;
+    transform-origin: 2.6em 2.5em;
+    animation: load2 2s infinite ease 1.5s;
+  &:after
+    width: 2.6em;
+    height: 5.2em;
+    background: #eee;
+    border-radius: 0 5.2em 5.2em 0;
+    top: -0.1em;
+    left: 2.5em;
+    transform-origin: 0px 2.5em;
+    animation: load2 2s infinite ease;
+  span
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 24px;
+    line-height: 56px;
+    display: block;
+    width: 100%;
+    z-index: 1;
+
+@keyframes load2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px 2px #fff, 0 0 10px 3px #e89000, 0 0 20px 3px #d85000;
+  }
+  50% {
+    box-shadow: none;
+  }
+  100% {
+    box-shadow: 0 0 5px 2px #fff, 0 0 10px 3px #e89000, 0 0 20px 3px #d85000;
+  }
+}
+
+@keyframes answer_glow {
+  50%   {
+    color #fff
+    background blue
+  }
+}
+
+@keyframes answer_glow_transp {
+  50%   {
+    color #fff
+    background transpWhite03
+  }
+}
+
+@keyframes spinnerRotate {
+  100% { transform: rotate(360deg); }
+}
+@keyframes spinnerDash {
+  0%,10% { stroke-dasharray: 1,270; stroke-dashoffset: 0 }
+  40% { stroke-dasharray: 89,240; stroke-dashoffset: 0 }
+  100% { stroke-dasharray: 1,240; stroke-dashoffset: -110 }
+}
+@keyframes spinnerColor {
+  0%,20%,100% { stroke: gold }
+  30%,45% { stroke: gold }
+  50%,70% { stroke: gold }
+  75%,95% { stroke: gold }
+}
+.spinner
+  width: 40px
+  height: 40px
+  padding 5px
+  margin: auto
+  circle
+    stroke: #42a5f5
+    stroke-width: 4
+    animation: spinnerDash 1.275s ease-in-out infinite, spinnerColor 5.1s linear infinite
+  svg
+    animation: spinnerRotate 3s linear infinite;
+  &.monochrome
+    circle
+      animation spinnerDash 1.275s ease-in-out infinite
+      stroke gold
+    &.white
+      circle
+        stroke white
+
+.fading_out
+  transition opacity 300ms ease-out
+  opacity 0
+
+@keyframes fade-in {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+.fade-in
+  animation fade-in 250ms

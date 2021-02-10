@@ -1,0 +1,444 @@
+
+.tournamentContainer
+  display: grid
+
+  grid-template-areas:
+    'infos'\
+    'podium'\
+    'teamLeaderboard'\
+    'leaderboard'\
+    'games'\
+    '.'
+
+  @media only screen and (min-width 800px)
+    grid-template-columns: repeat(2, 1fr)
+    grid-template-rows: auto repeat(4, fit-content(0))
+    grid-template-areas:
+      'infos infos'\
+      'podium podium'\
+      'leaderboard games'\
+      'leaderboard .';
+
+  &.teamBattle
+    @media only screen and (min-width 800px)
+      grid-template-areas:
+        'infos infos'\
+        'podium podium'\
+        'teamLeaderboard leaderboard'\
+        'games .';
+
+.header-subTitle.tournament-subtTitle
+  font-size 1em
+
+.tournament_item
+  position initial
+  display flex
+  flex-flow row nowrap
+  align-items center
+
+.tournamentList
+  flex-grow 1
+
+.tournamentListIcon
+  flex 0 0 28px
+  margin-right 0.5em
+  .tournament_item.teamBattle > &
+    color #a48b19
+  .tournament_item.user > &
+    color #888888
+  .tournament_item.maxRating > &
+    color #8572ff
+  .tournament_item.hourly > &
+    color #3d9333
+  .tournament_item.daily > &
+    color #0072b2
+  .tournament_item.eastern > &
+    color #0072b2
+  .tournament_item.weekly > &
+    color #d55e00
+  .tournament_item.monthly > &
+    color #c93d3d
+  .tournament_item.yearly > &
+    color #bf811d
+  .tournament_item.weekend > &
+    color #bf811d
+  .tournament_item.unique > &
+    color #bf811d
+  .tournament_item.marathon > &
+    color #66558c
+
+  &:before
+    font-size 28px
+
+.tournamentListName
+  text-align: left
+  text-overflow: ellipsis
+  white-space: nowrap;
+  overflow hidden
+  flex 1 1 auto
+  > .fullName
+    overflow hidden
+    text-overflow ellipsis
+
+.tournamentListTime
+  > .time
+    letter-spacing 0px
+  text-align right
+  flex 0 0 90px
+  @media only screen and (min-width 768px)
+    flex 0 0 110px
+
+.tournamentTitle
+  text-align left
+  font-weight bold
+  color gold
+  margin 5px 0 5px
+
+.tournamentFeatured
+  text-align center
+
+.tournamentStandings
+  margin-top 1em
+  width 100%
+  transition opacity 100ms
+  &.loading
+    opacity 0.8
+  @media only screen and (min-width 800px)
+    margin-top 0
+
+.on-fire
+  &:before
+    content: attr(data-icon)
+    color: #d59120
+
+.off-fire
+  &:before
+    content: ''
+
+.tournament-list-item
+  position initial
+  display flex
+  flex-flow row nowrap
+  justify-content space-between
+  > .tournamentPoints
+    flex 0 0 0
+    text-align right
+    padding-left 5px
+  > .tournamentIdentity
+    flex-grow 1
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow hidden
+    display inherit
+    > .playerName
+      display inline-block
+      padding-right 5px
+    > .playerTeam
+      font-size 0.6em
+
+.list_item.tournament-me
+  > .tournamentPlayer
+    border-left 10px solid #d59120
+    padding-left 5px
+
+.progress
+  &.positive
+    color green
+  &.negative
+    color red
+
+.timeArrow
+  font-weight: bold
+
+.tournamentHeader
+  grid-area infos
+  padding 10px 10px 0px 10px
+  min-width 0
+
+.tournamentConditions, .tournamentCreatorInfo, .tournamentPositionInfo, .tournamentTimeInfo, .tournamentSpotlightInfo, .tournamentNoTeam
+  margin-bottom 0.4em
+  padding-bottom 0.4em
+
+.tournamentSpotlightInfo
+  font-size 0.8em
+
+.tournamentConditions
+  display flex
+  &.accepted
+    color green
+  &.rejected
+    color red
+  > .withIcon
+    align-self center
+    font-size 16px
+    line-height 1em
+  > .conditions_list
+    display flex
+    flex-flow column nowrap
+    > .condition
+      &.accepted
+        color green
+      &.rejected
+        color red
+  &.anonymous
+    color inherit
+
+.tournamentCreatorInfo, .tournamentPositionInfo, .tournamentConditions, .tournamentNoTeam
+  font-size 0.9em
+
+.tournamentNoTeam
+  display flex
+  color red
+  > .withIcon
+    align-self center
+    font-size 16px
+    line-height 1em
+
+.tournamentNotFound
+  padding 1em
+  p
+    margin-bottom 0.5em
+
+.tournamentTimeInfo
+  padding-bottom 0.6em
+  display flex
+  justify-content space-between
+  align-items center
+
+.timeInfo
+  > strong
+    font-weight bold
+    font-family 'Roboto'
+    font-size 1.2em
+
+.tournamentMiniBoard
+  display flex
+  flex-flow column nowrap
+  margin-bottom 1em
+
+.podium
+  grid-area podium
+  display flex
+  flex-flow row nowrap
+  font-size 0.75em
+  margin 0 10px
+  align-items flex-end
+  > div
+    overflow hidden
+    text-overflow ellipsis
+    display flex
+    flex-flow column wrap
+    justify-content flex-end
+    > div
+      margin 0 auto
+      text-align center
+    > .trophy
+      min-height 0 // chrome 48 bug workaround
+      margin-bottom 5px
+
+.place1
+  width 44%
+  font-size 1.25em
+  > .trophy
+    width 75%
+    content: url('../../images/trophies/lichess-massive.svg')
+
+.place2
+  width 31%
+  font-size 1.1em
+  > .trophy
+    width 55%
+    content: url('../../images/trophies/lichess-silver-1.svg')
+
+.place3
+  width 25%
+  font-size 1em
+  > .trophy
+    width 50%
+    content: url('../../images/trophies/lichess-bronze-2.svg')
+
+.stats
+  font-size .7em
+  margin 0 auto
+
+.statName
+  text-align left
+
+.statData
+  text-align right
+
+.navigationButton.tournament-me
+  line-height 25px
+  width 60px
+  transition opacity 100ms
+  &:before
+    margin-right 5px
+  &.disabled
+    opacity 0.8
+  &.activated
+    color #ccc
+    text-shadow 0 1px 0 #000
+    background #444
+    border-color #404040
+    box-shadow 0 3px 4px rgba(0,0,0,0.35) inset
+
+.pageInfo
+  margin 0px 5px 0px 5px
+  @media only screen and (max-width 380px)
+    letter-spacing -1px
+
+.tournamentLeaderboard
+  grid-area leaderboard
+  display flex
+  flex-flow column nowrap
+  padding 0 10px
+  min-width 0
+
+.tournamentTeamLeaderboard
+  grid-area teamLeaderboard
+  display flex
+  flex-flow column nowrap
+  padding 0 10px
+  min-width 0
+
+.ttc-0
+  color: hsl(274, 100%, 59%)
+
+.ttc-1
+  color: hsl(240, 100%, 67%)
+
+.ttc-2
+  color: #008000
+
+.ttc-3
+  color: #b22222
+
+.ttc-4
+  color: hsl(16, 80%, 62%)
+
+.ttc-5
+  color: #9acd32
+
+.ttc-6
+  color: #ff4500
+
+.ttc-7
+  color: #2e8b57
+
+.ttc-8
+  color: #daa520
+
+.ttc-9
+  color: hsl(32, 75%, 47%)
+
+.tournamentGames
+  grid-area games
+
+.flagRank
+  &:before
+    font-size 1.2em
+    vertical-align  middle
+    font-family "lichess" !important
+    content attr(data-icon)
+
+.tournamentFaq
+  padding 10px
+  h2
+    font-weight bold
+    font-size 1.1em
+    margin-bottom 5px
+    &:not(:first-child)
+      margin-top 15px
+  .double
+    color: #d59120;
+  .streak
+    color: #759900;
+
+.tournamentModalStats
+  font-size 1em
+  margin 0 auto
+  border-spacing 10px 0px
+  border-collapse separate
+  > .invisible
+    display none
+
+.tournamentInfoModal
+  > header
+    box-sizing content-box
+    > .tournamentModalHeader
+      padding-left 40px
+      padding-right 40px
+      overflow hidden
+      white-space nowrap
+      text-overflow ellipsis
+  .tournamentModalTable
+    width 100%
+    >.list_item
+      >td
+        vertical-align  middle
+    td
+      overflow hidden
+      text-overflow ellipsis
+      white-space nowrap
+  .oppName
+    max-width 160px
+  .teamPlayerScore
+    width 20%
+    text-align center
+
+.tournamentPlayerInfo
+  padding 5px
+
+.streak
+  color #759900
+
+.double
+  color #d59120
+
+#tournamentCreateForm
+  >fieldset
+    padding 0px 20px
+    >.select_input
+      >select
+        padding-left 100px
+      &.no-margin
+        margin-right 0px
+      .textField
+        width 60%
+    >.tournament_name_warning
+      font-size .75em
+      margin-top 5px
+
+.tournamentForm
+  .notVisible
+    visibility hidden
+    position absolute
+
+.tournament_form_popup
+  >.popup_content
+    padding 0
+
+.view-container.light
+  #tournamentPlayerInfoModal
+    > header
+      background-color #fff
+      color textLightBg
+      border-bottom 1px solid borderLightGray
+      > .playerModalHeader
+        color textLightBg
+    > .modal_content
+      color textLightBg
+      background-color themeBgLight
+
+  #tournamentCreateForm
+    .textField
+      border 1px solid borderLightGray
+
+.view-container.transp
+  .navigationButton.tournament-me
+    color darken(textTransp, 15%)
+    &.activated
+      color inherit
+      background transparent
+      border-color transpWhite02
+      box-shadow 0 0 10px rgba(255,255,255,0.4)

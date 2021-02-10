@@ -1,0 +1,106 @@
+.analyse-gameAnalysis
+  display flex
+  flex-flow column nowrap
+  .title
+    display block
+    font-size 0.8em
+    margin 5px 10px
+
+.analyse-gameAnalysis_chartPlaceholder
+  height 100px
+  display flex
+  justify-content center
+  align-items center
+
+.analyse-computerAnalysis
+  &.request
+    flex-grow 1
+    display flex
+    align-items center
+    padding 0.5em
+    justify-content center
+    > p
+      text-align center
+
+
+.analyse-chart
+  background linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 20%, rgba(128, 128, 128, 0.2) 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%)
+  .area.above
+    fill: rgba(#fff, 0.7)
+  .area.below
+    fill: #111
+  .zeroline
+    stroke rgba(#fff, 0.3)
+  .division.Opening
+    stroke rgb(48, 204, 77)
+  .division.Middlegame
+    stroke rgb(48, 147, 204)
+  .division.Endgame
+    stroke rgb(204, 151, 48)
+  .chart-legend, .legend
+    fill rgba(#fff, 0.6)
+  .chart-legend
+    font-size 0.5em
+  .legend
+    font-size 0.8em
+  .domain
+    stroke rgba(#fff, 0.6)
+  .tick
+    font-size 0.7em
+    > text
+      fill rgba(#fff, 0.6)
+    > line
+      stroke rgba(#fff, 0.6)
+  .dot
+    stroke orange
+    fill #fff
+
+#acpl-chart
+  .line
+    stroke orange
+
+#moveTimes-chart
+  .line, .dot
+    stroke blue
+
+.analyse-evalSummary
+  display flex
+  flex-flow row nowrap
+  justify-content space-around
+  padding 10px
+  font-size 0.9em
+  > table
+    width 48%
+    > tbody
+      font-size 0.9em
+  th
+    padding-right 1em
+    text-align center
+    > span:before
+      margin 0
+
+.analyse-requestComputer
+  display flex
+  justify-content center
+  align-items center
+  .fatButton
+    width 80%
+
+.analyse-requestProgress
+  text-align center
+  padding 10px
+
+.view-container.light
+  .analyse-chart
+    background linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(128, 128, 128, 0.05) 20%, rgba(128, 128, 128, 0.2) 50%, rgba(128, 128, 128, 0.05) 80%, rgba(255, 255, 255, 0) 100%)
+    .area.below
+      fill rgba(#111, 0.9)
+    .chart-legend, .legend
+      fill rgba(#000, 0.7)
+    .domain
+      stroke rgba(#000, 0.6)
+    .tick
+      > line
+        stroke rgba(#000, 0.6)
+      > text
+        fill rgba(#000, 0.6)

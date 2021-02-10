@@ -1,0 +1,120 @@
+// base
+.cg-board
+  background-image url('../../images/board/svg/brown.svg')
+  user-select none
+  background-size cover
+  position relative
+  width 100%
+  height 100%
+
+square
+  position absolute
+  top: 0
+  left: 0
+  width 12.5%
+  height 12.5%
+  &.move-dest
+    background radial-gradient(rgba(20, 85, 30, 0.5) 22%, #208530 0, rgba(0, 0, 0, 0.3) 0, rgba(0, 0, 0, 0) 0)
+    &.occupied
+      background radial-gradient(transparent 0%,transparent 80%,rgba(20,85,0,0.3) 80%)
+  &.premove-dest
+    background radial-gradient(rgba(20, 30, 85, 0.5) 22%, #203085 0, rgba(0, 0, 0, 0.3) 0, rgba(0, 0, 0, 0) 0)
+    &.occupied
+      background radial-gradient(transparent 0%,transparent 80%,rgba(20,30,85,0.3) 80%)
+  &.last-move
+    background-color rgba(155, 199, 0, 0.41)
+  .green > .cg-board > &.last-move,
+  .green-plastic > .cg-board > &.last-move,
+  .marble > .cg-board > &.last-move
+    background-color: rgba(0, 155, 199, 0.41)
+  &.check
+    background radial-gradient(ellipse at center, rgba(255, 0, 0, 1) 0%, rgba(231, 0, 0, 1) 25%, rgba(169, 0, 0, 0) 89%, rgba(158, 0, 0, 0) 100%)
+  &.current-premove
+    background-color rgba(20, 30, 85, 0.5)
+  &.exploding1
+    background-color: rgba(255, 255, 255, 0.5);
+  &.exploding2
+    background-color: rgba(255, 0, 0, 0.5);
+    transition: background-color 0.1s;
+  &.selected
+    background-color rgba(216, 85, 0, 0.3)
+
+piece
+  position absolute
+  top 0
+  left 0
+  width 12.5%
+  height 12.5%
+  background-size cover
+  &.anim
+    z-index 3
+  &.captured
+    opacity 0.5
+  &.dragging
+    z-index 4
+  &.magnified
+    width: 25%
+    height: 25%
+  &.ghost
+    opacity 0.3
+
+.cg-square-target
+  position absolute
+  top 0
+  left 0
+  width 25%
+  height 25%
+  background-color rgba(0, 0, 0, 0.2)
+  border-radius 50%
+
+.orientation-black
+  > li-coords.files
+    flex-flow row-reverse
+  > li-coords.ranks
+    flex-flow column
+
+li-coords
+  position absolute
+  display flex
+  align-items center
+  font-family 'Roboto'
+  font-weight bold
+  font-size 11px
+  line-height 11px
+  color #fff
+  pointer-events none
+  @media (min-width 600px)
+    font-size 15px
+    line-height 15px
+  &.files
+    bottom 0
+    left 1px
+    flex-flow: row;
+    width: 100%;
+    &.withSymm
+      left initial
+      right 1px
+      > li-coord
+        text-align right
+    &.symm
+      transform rotate(180deg)
+      bottom initial
+      top 0
+      > li-coord
+        text-align right
+    > li-coord
+      text-align left
+  &.ranks
+    right 1px
+    top 1px
+    flex-flow: column-reverse
+    height: 100%
+    &.symm
+      transform rotate(180deg)
+      top initial
+      right initial
+      left 1px
+      bottom 1px
+
+li-coord
+  flex 1 1 auto

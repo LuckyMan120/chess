@@ -1,0 +1,95 @@
+#advancedSearchForm
+  margin 0px 5px 0px 5px
+// select
+.game_search_row
+  display flex
+  flex-flow row nowrap
+  justify-content space-around
+  margin-top 5px
+  width 100%
+  label
+    flex 0 0 33%
+
+.game_search_input
+  flex 0 0 49.5%
+  &.full
+    flex 0 0 100%
+  input[type=text]
+    background modalDarkBg
+    border 1px solid lighten(#444, 10%)
+    width 100%
+    margin-right 5px
+  > .check_container
+    min-height initial
+    > input
+      margin 0
+
+.game_search_input_wrapper
+  flex 0 0 66%
+  display flex
+  flex-flow row nowrap
+  justify-content space-between
+
+.game_search_select
+  font-size 0.9em
+  background modalDarkBg
+  border 1px solid lighten(#444, 10%)
+  position relative
+  flex 0 0 49.5%
+  height 25px
+  &.full
+    flex 0 0 100%
+  select
+    position absolute
+    left 0
+    background transparent
+    border none
+    outline none
+    width 100%
+  label
+    position absolute
+    left 4px
+    width calc(100% - 4px)
+    color labelText
+    &:after
+      content "▼"
+      font-size 0.6em
+      line-height 20px
+      position absolute
+      right 5px
+      color #5f5f5f
+
+.searchGamesList
+  &.searching
+    min-height 100px
+    display flex
+    align-items center
+
+.search-empty
+  margin 0 5px
+
+
+.view-container.light
+  .game_search_input
+    input[type=text]
+      background #fff
+      border-color borderLightGray
+  .game_search_select
+    background #fff
+    border-color borderLightGray
+
+.view-container.transp
+  .game_search_input
+    input[type=text]
+      background transpWhite005
+      border-color transpWhite02
+
+  .game_search_select
+    background transpWhite005
+    border-color transpWhite02
+    select
+      color inherit
+    label
+      color transpWhite05
+      &:after
+        color transpWhite02

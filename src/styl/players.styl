@@ -1,0 +1,131 @@
+#searchPlayersModal
+  color textDarkBg
+  > header
+    background headerBgDark
+    border-bottom-style none
+    display flex
+    justify-content space-between
+    > .main_header_drop_shadow
+      bottom -2px
+    > button
+      color lighten(textDarkBg, 25%)
+      > .svg-icon-wrapper
+        width 24px
+        height 24px
+        position relative
+      margin 0
+      &.active
+        background lighten(bgdark, 8%)
+  > .modal_content
+    color textDarkBg
+    background bgdark
+
+.players_main_header
+  flex 1 1 auto
+  display flex
+  justify-content space-between
+  > .main_header_button
+    padding-right 10px
+
+.search_input
+  position relative
+  width calc(100% - 70px)
+  margin 0 auto
+  height headerHeight
+  > input
+    background transparent
+    color textDarkBg
+    width 100%
+    height 100%
+    border none
+    outline none
+    margin 0
+    padding 0
+    &::placeholder
+      opacity 0.6
+
+.playerSuggestion
+  display flex
+  justify-content space-between
+  padding-right 35px
+  > .rating:before
+    font-size 1.2em
+    vertical-align bottom
+    margin-right 1px
+
+.leaderboard_wrapper
+  display flex
+  flex-flow row wrap
+
+.leaderboard_section
+  width 100%
+  padding 0 1em
+  @media only screen and (min-width 700px)
+    flex 0 1 33.3vw
+
+.leaderboard_title
+  text-transform uppercase
+  font-size 1.2em
+  font-weight 600
+  margin 1em 0 .5em 0
+  display flex
+  > .perfIcon
+    font-size 1.2em
+    margin-right .5em
+
+.leaderboard_player
+  padding 10px 0
+  display flex
+  justify-content space-between
+  @media only screen and (min-width 700px)
+    border-bottom-style none
+    padding 5px 0
+
+.playerMiniPerf
+  > .rating, > .progress
+    padding 0 5px
+  > .rating:before
+    font-size 1.2em
+    vertical-align middle
+    margin-right 1px
+  > .progress
+    &.positive
+      color green
+      &:before
+        position relative
+        top 2px
+    &.negative
+      color red
+
+
+.view-container.light
+  #searchPlayersModal
+    > header
+      background-color themeBgLight
+      color textLightBg
+      > button
+        color lighten(textLightBg, 25%)
+    > .modal_content
+      color textLightBg
+      background-color themeBgLight
+    .list_item
+      border-bottom-color themeBgLightBorder
+      &.active
+        background-color darken(bglight, 5%)
+
+  .search_input > input
+    color textMediumGray
+
+.view-container.transp
+  .ranking
+    border-bottom-color transpWhite01
+
+  #searchPlayersModal
+    background-color transpBlack08
+    > .modal_content
+      color textTransp
+      background-color transpBlack05
+    .list_item
+      border-bottom-color transpWhite01
+      &.active
+        background-color transpWhite02

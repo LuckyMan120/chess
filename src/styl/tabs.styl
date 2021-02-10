@@ -1,0 +1,62 @@
+
+// tab navigation
+.tabs-nav-header
+  flex 0 0 48px
+  position relative
+
+.tabs-navigation
+  display flex
+  flex-flow row nowrap
+  height 48px
+  position relative
+  &.withBorder
+    border-bottom 2px solid borderColor
+    .tabIndicator
+      bottom -2px
+
+.tab-button
+  flex 0 1 auto
+  text-transform uppercase
+  text-align center
+  padding 0 .8em
+  font-size .9em
+  overflow hidden
+  height calc(100% - 2px)
+  color darken(headerBgDarkColor, 10%)
+  &.active
+    background-color lighten(bgdark, 10%)
+  &.selected
+    color tabsActive
+
+.tabIndicator
+  position absolute
+  bottom 0
+  left 0
+  height 2px
+  background-color tabsActive
+  transition transform ease-out 200ms
+
+
+.tabs-view-wrapper
+  overflow-x hidden // now needed by chrome 73
+  flex 1 1 auto
+  display flex
+  flex-flow column nowrap
+  min-height 0 // chrome 73
+
+.tab-content
+  flex 1 1 auto
+  display flex
+  flex-flow column nowrap
+  min-height 0 // chrome 73
+
+.view-container.light
+  .tab-button
+    color inherit
+    &.active
+      background-color darken(themeBgLight, 5%)
+    &.selected
+      color tabsActive
+  .tabs-navigation
+    &.withBorder
+      border-color darken(themeBgLight, 15%)

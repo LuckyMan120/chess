@@ -1,0 +1,17 @@
+{
+  "appId": "com.dev.chess.pro",
+  "appName": "dev.chess.pro",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "backgroundColor": "ff000000",
+  "appendUserAgent": "Lichobile/7.7.1",
+  "plugins": {
+    "PushNotifications": {
+      "presentationOptions": [
+        "sound",
+        "alert"
+      ]
+    }
+  }
+}

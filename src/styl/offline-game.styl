@@ -1,0 +1,83 @@
+.engineSpinner
+  color darken(textDarkBg, 5%)
+  margin-left 10px
+
+.offline_actions
+  button.draw-yes
+    > span
+      margin-right 5px
+  .opponentSelector
+    .select_input
+      margin-top 0
+
+.new_offline_game
+  .from_position_wrapper
+    margin-top 10px
+    p
+      font-size 0.9em
+    > .from_position
+      margin-top 5px
+      display flex
+      justify-content center
+
+.OtbImportGamePopup
+  .popup_content
+    padding 10px
+    form
+      margin 1em 0
+      display flex
+      flex-flow column nowrap
+      position relative
+      > .importMeta
+        margin-bottom 10px
+        width 90%
+        &:last-child
+          margin-bottom 0
+      > .exchange
+        position absolute
+        right 0
+        height 100%
+        width 10%
+        display flex
+        align-items center
+        justify-content center
+        > .fa
+          margin 0
+
+.stageClock
+  display flex
+  flex-flow column nowrap
+  justify-content space-around
+
+.clockMoves
+  font-family 'Roboto'
+  font-size 15px
+  line-height 1
+
+.antagonistInfos.crazy
+  >.antagonistUser
+    >.clockInfo
+      >.clock
+        max-width 68px
+        font-size 20px
+        padding 2px 2px 2px
+      >.clockMoves
+        max-width 68px
+        font-size 12px
+        padding 2px 2px 2px
+
+#player_info
+  >.pocket
+    >piece
+      transform rotate(0deg)
+
+#opponent_info
+  >.pocket
+    >piece
+      transform rotate(0deg)
+
+.playTable.offline.mode_facing.opponent
+  transform rotate(180deg)
+
+.playTable.offline.mode_flip.opponent_turn
+  transform rotate(180deg)

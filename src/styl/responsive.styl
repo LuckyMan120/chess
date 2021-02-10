@@ -1,0 +1,75 @@
+// targets iphone 4
+@media only screen and (max-height 480px) and (orientation portrait)
+  .main_header
+    height 40px
+    > nav
+      height 40px
+      > h1
+        font-size 0.9rem
+        line-height 40px
+
+  .main_header_button
+    padding 10px 0.9rem
+    font-size 18px
+    line-height 18px
+
+  .back_button
+    height 40px
+    font-size 0.9em
+    padding 0
+    > .title, .fa
+      height 40px
+
+  .content, .content_round
+    height calc(100% - 40px)
+
+  .playTable
+    height calc((100% - 100vw - 40px) / 2)
+    font-size 12px
+    .clock
+      font-size 20px
+      &.correspondence
+        font-size 14px
+    .material
+      display none
+    .infos
+      h2
+        white-space normal
+        overflow hidden
+
+  .tomb
+    div
+      width 14px
+      height 14px
+
+  .actions_bar
+    height 40px
+
+  .action_bar_button
+    height 40px
+    line-height 25px
+    &:before
+      font-size 18px
+      line-height 18px
+
+  #wrapper_games
+    max-height 380px
+    .card
+      max-height 380px
+      top 10%
+      .description
+        padding 10px 0
+      h2
+        font-size 1.1em
+      p
+        margin-top 10px
+
+  .player_controls
+    .result
+      margin 0.5em 0
+    .force_resign_zone
+      margin-top 0
+
+  .puzzleComment
+    .nbSeconds
+      display none

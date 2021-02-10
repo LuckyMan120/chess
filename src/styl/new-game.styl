@@ -1,0 +1,92 @@
+.game_form_popup
+  > .popup_content
+    padding 0
+    display flex
+    flex-flow column nowrap
+  .select_input
+    margin-top 10px
+
+.game_form
+  fieldset
+    padding 0px 20px
+  .check_container
+    margin-top 15px
+
+.rating_range
+  margin-top 10px
+  .select_input
+    margin-top 5px
+    select
+      padding-left 60px
+
+.setupPosition
+  display flex
+  flex-flow column nowrap
+  justify-content center
+  align-items center
+  margin-top 10px
+  input[type=text]
+    width 90%
+    margin 10px auto
+    border 1px solid borderLightGray
+    padding 2px 4px
+  .setupFenError
+    color red
+
+.newGame-preset_switch
+  > .nice-radio
+    > input.radio + label
+      text-align center
+      padding 0
+      &:after
+        content none
+
+.newGame-pools
+  flex-grow 1
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  grid-gap: 0.4em
+  padding: 0.4em
+  &.loading
+    display flex
+    align-items center
+    justify-content center
+
+.newGame-pool
+  font-family 'Roboto'
+  font-weight 300
+  fluid-type(14px, 30px)
+  background rgba(255,255,255,0.7)
+  background-color transpWhite01
+  border 1px solid lighten(#3d3d3d, 20%)
+  padding 1em 0
+  &.active
+    background-color rgba(gold, 0.1)
+  display flex
+  flex-flow column
+  justify-content center
+  align-items center
+  opacity 1
+  transition opacity 0.5s
+
+.newGame-clock
+  font-size 1.5em
+  line-height 1.6em
+  letter-spacing .1em
+
+.newGame-perf
+  text-transform capitalize
+
+.view-container.light
+  .newGame-pool
+    background-color transpWhite04
+    border-color borderLightGray
+    &.active
+      background-color rgba(gold, 0.1)
+
+.view-container.transp
+  .newGame-pool
+    border-color transpWhite02
+    background-color transpWhite005
+    &.active
+      background-color transpWhite015

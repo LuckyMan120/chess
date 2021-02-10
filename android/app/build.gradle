@@ -1,0 +1,91 @@
+apply plugin: 'com.android.application'
+
+android {
+    ndkVersion '21.3.6528147'
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "org.lichess.mobileapp2"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField 'Boolean', 'NNUE', 'false'
+        buildConfigField 'String', 'FLAVOR', '"withoutNNUE"'
+
+    }
+    signingConfigs {
+        release {
+            readKeystoreProperties()
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            // shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        pickFirst 'lib/**/libc++_shared.so'
+    }
+    flavorDimensions 'nnue'
+    productFlavors {
+        withoutNNUE {
+            dimension 'nnue'
+        }
+        withNNUE {
+            //buildConfigField 'Boolean', 'NNUE', 'false'
+            dimension 'nnue'
+        }
+    }
+}
+
+
+repositories {
+    maven {
+        url  "https://dl.bintray.com/ionic-team/capacitor"
+    }
+    flatDir{
+        dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
+    implementation project(':capacitor-android')
+    testImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
+    implementation project(':capacitor-cordova-android-plugins')
+    implementation('com.google.firebase:firebase-messaging:21.0.1') {
+      exclude group: 'com.google.firebase', module: 'firebase-core'
+      exclude group: 'com.google.firebase', module: 'firebase-analytics'
+      exclude group: 'com.google.firebase', module: 'firebase-measurement-connector'
+    }
+}
+
+apply from: 'capacitor.build.gradle'
+
+try {
+    def servicesJSON = file('google-services.json')
+    if (servicesJSON.text) {
+        apply plugin: 'com.google.gms.google-services'
+    }
+} catch(Exception e) {
+    logger.warn("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
+}
+
+def readKeystoreProperties() {
+    def propsFile = rootProject.file('keystore.properties')
+    def configName = 'release'
+    if (propsFile.exists() && android.signingConfigs.hasProperty(configName)) {
+        def props = new Properties()
+        props.load(new FileInputStream(propsFile))
+        android.signingConfigs[configName].storeFile = file(props['storeFile'])
+        android.signingConfigs[configName].storePassword = props['storePassword']
+        android.signingConfigs[configName].keyAlias = props['keyAlias']
+        android.signingConfigs[configName].keyPassword = props['keyPassword']
+        println '===== successfully applied keystore properties ====='
+    }
+}

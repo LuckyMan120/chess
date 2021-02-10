@@ -1,0 +1,324 @@
+a
+  color linkBlue
+  text-decoration none
+
+.external_link
+  &::before
+    content "\f08e"
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+
+// workaround for ios: the direct parent of an input must have user-select: text
+.allow_select
+  user-select text
+
+.loader_container
+  flex 1 1 auto
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+.withLink
+  text-decoration underline
+  &:after
+    content: "\f08e"
+    margin-left 5px
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+
+.svg_icon
+  width 24px
+  height 24px
+  > .svg_icon_inner
+    font-size: inherit;
+    color: inherit;
+    line-height: inherit;
+    height 100%
+    > svg
+      height 100%
+      width 100%
+      fill currentcolor
+      color inherit
+
+input, textarea
+  -webkit-appearance none
+
+textarea
+  resize none
+
+span.fa
+  margin-right 0.5em
+
+.disabled, &:disabled
+  opacity 0.5
+
+.hide
+  display none
+
+.clearfix:after
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+
+.small
+  font-size 0.85em
+
+.scroller
+  overflow hidden
+  &.page
+    height 100%
+
+.module-tabs
+  height 100%
+
+.native_scroller
+  overflow-y auto
+  -webkit-overflow-scrolling: touch // still needed for iOS 12
+
+.vertical_align
+  position relative
+  top 50%
+  transform translateY(-50%)
+
+.box
+  background-color lighten(bgdark, 6%)
+
+/* lists */
+.items_list_block
+  > .list_item
+    padding 15px 0
+
+.list_item
+  position relative
+  line-height 1.5em
+  padding .8em
+  border-bottom 1px solid borderColor
+  word-wrap break-word
+  > td
+    padding 15px 0
+    line-height 20px
+    &:first-child
+      padding-left 10px
+    &:last-child
+      padding-right 10px
+  &:before
+    margin-right 10px
+  &:last-child
+    border-bottom none
+  &.odd
+    background-color lighten(bgdark, 10%)
+  &.active
+    background lighten(bgdark, 5%)
+  &.bglight
+    border-bottom-color darken(bglight, 15%)
+    &.active
+      background-color darken(bglight, 5%)
+
+.list_item.odd, .list_item.even
+  border-bottom none
+
+.nav
+  &:after
+    content "\f054"
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    position absolute
+    right 10px
+    opacity 0.6
+    line-height 20px
+
+.noPadding
+  > .list_item
+    padding 15px 0
+    &.nav:after
+      right 0
+
+.userStatus
+  font-size 15px
+  &.online
+    color green
+  &.offline
+    opacity 0.6
+
+.patron
+  &.is-green
+    color green
+  font-family "lichess"!important
+  font-size 1.2em
+  content attr(data-icon)
+  margin-right 5px
+  width 1.2em
+  display inline-block
+  vertical-align -0.15em
+
+.withIcon
+  &[data-icon]:before
+    margin-right 3px
+    vertical-align middle
+
+.contentTitle
+  text-align left
+  font-weight bold
+  color gold
+  margin 15px 0 5px
+
+.globalSpinner
+  position absolute
+  left calc(50% - 22.5px)
+  top calc(50% - 22.5px)
+  z-index 100000
+  background-color #fff
+  border-radius 50%
+  box-shadow 1px 2px 2px 0px rgba(0,0,0,0.1)
+  transform translateZ(0)
+
+.berserk
+  color orange
+
+.miniUser
+  padding 10px
+  > .title
+    display flex
+    justify-content space-between
+    margin-bottom 1em
+  > .warning
+    margin-bottom 1em
+  > .mini_perfs
+    display flex
+    justify-content space-around
+    flex-flow row wrap
+    > .perf
+      flex 0 1 25%
+      text-align center
+      margin-bottom 5px
+  > .score_wrapper
+    text-align center
+    margin-top 1em
+    > .score
+      font-weight bold
+  > .mini_user_actions_wrapper
+    margin-top 10px
+
+.color-icon
+  &:before
+    font-family "lichess"!important
+    vertical-align middle
+    margin-right 5px
+  &.random
+    &:before
+      content: "l"
+  &.white
+    &:before
+      content: "J"
+  &.black
+    &:before
+      content: "K"
+  &.light
+    &.white
+      &:before
+        content: "K"
+    &.black
+      &:before
+        content: "J"
+
+.actions_bar
+  display flex
+  flex-flow row nowrap
+  justify-content flex-end
+  padding 0
+  flex 0 0 footerHeight
+  width 100%
+  overflow hidden
+  // iphone X support
+  margin-bottom: env(safe-area-inset-bottom);
+  @media only screen and (orientation portrait) and (min-width 768px) and (min-height 768px)
+    flex 0 0 footerHeightBigScreens
+
+.chip
+  font-family 'Noto Sans', sans-serif
+  position absolute
+  font-size 10px
+  font-weight bold
+  line-height 1.2em
+  letter-spacing 0px
+  color headerBgDark
+  border 3px solid headerBgDark
+  border-radius 50%
+  height 19px
+  width 19px
+  top 5px
+  right 5px
+  background gold
+
+signal
+  display: flex
+  align-items flex-end
+  height: 1.5em;
+  width: 2.25em;
+  > i
+    flex-basis: 20%;
+    margin-left: 1px;
+    height: 40%;
+    background-color: green
+
+signal > i:nth-child(2) { height: 60%; }
+signal > i:nth-child(3) { height: 80%; }
+signal > i:nth-child(4) { height: 100%; }
+
+signal.q1 > i
+  background-color: #dc322f;
+
+signal.q2 > i
+  background-color: #d59120;
+
+signal > i.off
+  background-color darken(#fff, 40%)
+
+.countdown-timer
+  display inline
+  font-weight bold
+  font-family 'Roboto'
+
+.piece-no-square
+  width: 64px;
+  height: 64px;
+  position relative
+  margin-right: 10px;
+  > piece
+    width 100%
+    height 100%
+
+.defaultForm
+  .form-error
+    width 80%
+    margin 0 auto
+    margin-bottom 10px
+  .field
+    margin-top 1em
+    > input
+      color textDarkGray
+      width 80%
+      margin 0 auto
+      display block
+      width 80%
+      margin 0 auto
+      height 50px
+      background #fff
+      border-radius 5px
+      border 1px solid #ddd
+      padding 0 15px
+  .submit
+    margin-top 1em
+    display flex
+    justify-content center

@@ -1,0 +1,77 @@
+.modal
+  position absolute
+  top 0
+  left 0
+  z-index 111
+  width 100%
+  height 100%
+  min-height 100%
+  overflow hidden
+  color modalDarkColor
+  > header
+    position absolute
+    z-index 112
+    // ios hack
+    transform translateZ(0)
+    top 0
+    left 0
+    width 100%
+    height 'calc(%s + env(safe-area-inset-top))' % headerHeight
+    background modalDarkHeader
+    padding-top: env(safe-area-inset-top);
+    > h2
+      font-size 1.1em
+      text-align center
+      line-height headerHeight
+
+.modal_close
+  position absolute
+  right 0
+  top env(safe-area-inset-top)
+  padding 10px
+  background transparent
+  font-size 24px
+  line-height 22.5px
+  height headerHeight
+
+.modal_content
+  background-color modalDarkBg
+  color modalDarkColor
+  height 100%
+  padding-top 'calc(%s + env(safe-area-inset-top))' % headerHeight
+  overflow-y auto
+  p
+    margin 1em 15px 0
+
+// overrides light theme style
+.modal_content
+  .submitButton
+    background linear-gradient(to bottom, #eee 0%, #d5d5d5 100%)
+    text-shadow: 0 1px 0 #FFF;
+    padding 8px 12px
+    border 1px solid #ccc
+    color: textMediumGray
+    font-size 1.2em
+    font-weight bold
+    &.active,&:active
+      background linear-gradient(to bottom, #f6f6f6 0%, #e6e6e6 100%)
+
+
+.view-container.light
+  .modal
+    color modalLightColor
+    > header
+      background #fff
+      border-bottom solid 1px #E1E1E1
+  .modal_content
+    background-color modalLightBg
+    color modalLightColor
+
+.view-container.transp
+  .modal
+    color modalTranspColor
+    > header
+      background modalTranspHeader
+  .modal_content
+    background-color modalTranspBg
+    color modalTranspColor
