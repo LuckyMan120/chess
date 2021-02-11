@@ -10,6 +10,12 @@ export default {
         })
       })
 
+      router.add('landing',  ({ params }) => {
+        import('./ui/landing/landing').then(m => {
+          onRouteMatch(m.default, params)
+        })
+      })
+
       router.add('timeline', ({ params }) => {
         import('./ui/timeline').then(m => {
           onRouteMatch(m.default, params)
