@@ -274,7 +274,7 @@ function renderDotsWrapper() {
   return null
 }
 
-function redrawDots() {
+export function redrawDots() {
   if (helper.isPortrait() && scroller) {
     const elsNb = helper.isTablet() ?
       Math.ceil(scroller.innerElements.length / 2) :
